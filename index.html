@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Covid-19 SDG Project</title>
+</head>
+<style type="text/css">
+	* {
+
+	}
+
+	body {
+		box-sizing: border-box;
+	}
+
+	.container {
+		position: relative;
+		width: 70%;
+		left: 30%;
+	}
+
+	label {
+		display: block;
+		font-size: 20px;
+		margin: 5px;
+	}
+
+	.main {
+    	width: 100%;
+    	height: 500px;
+	}
+
+	.form-container {
+	    position: relative;
+	    width: 50%;
+	    top: 10%;
+	}
+
+	.main-input {
+	    position: relative;
+	    width: 100%;
+	    margin: 10px;
+	}
+
+	.main-input input, .main-input select {
+	    width: 100%;
+	    height: 100%;
+	    font-size: 26px;
+	    padding: 2px;
+	    text-transform: capitalize;
+	    text-align: center;
+	    border-radius: 10px;
+	    outline: none;
+	    border: 2px solid rgb(0,100,0);
+	}
+
+	#data-go-estimate, #reset-btn {
+	    position: relative;
+	    width: 45%;
+	    height: 30px;
+	    margin: 10px;
+	    background-color: transparent;
+	    border-radius: 5px;
+	    outline: none;
+	    border: 2px solid grey;
+	}
+
+	@media screen and (max-width: 1024px) {
+		#data-go-estimate, #reset-btn {
+			width: 100%;
+		}
+	}
+
+</style>
+<body>
+	<div class="container">
+		<main class="main">
+			<h1>Covid-19 Facebook/SDG Project</h1>
+			<form class="form-container">
+				<div class="main-input">
+					<label for="data-population">Population</label>
+					<input type="number" name="population" id="data-population">
+				</div>
+				<div class="main-input">
+					<label for="data-time-to-elapse">Time to Elapse</label>
+					<input type="number" name="timeToElapse" id="data-time-to-elapse">	
+				</div>
+				<div class="main-input">
+					<label for="data-reported-cases">Reported Cases</label>
+					<input type="number" name="reportedCases" id="data-reported-cases">
+					</div>
+				<div class="main-input">
+					<label for="data-total-hospital-beds">Total Hospital Beds</label>
+					<input type="number" name="totalHospitalBeds" id="data-total-hospital-beds">
+				</div>
+				<div class="main-input">
+					<label for="data-period-type">Period Type</label>
+					<select id="data-period-type">
+						<option value="none">--select--</option>
+						<option value="days">days</option>
+						<option value="weeks">weeks</option>
+						<option value="months">months</option>
+						</select>
+				</div>
+				
+				<div class="btn-input">
+					<button id="data-go-estimate">data-go-estimate</button>
+					<button id="reset-btn">Reset</button>
+				</div>
+			</form>
+		</main>
+	</div>
+</body>
+<script type="text/javascript">
+	const Data = require('./src/estimator.js');
+	console.log(Data.covid19ImpactEstimator());
+
+	let population = document.getElementById('data-population');
+	let timeToElapse = document.getElementById('data-time-to-elapse');
+	let reportedCases = document.getElementById('data-reported-cases');
+	let totalHospitalBeds = document.getElementById('data-total-hospital-beds');
+	let periodType = document.getElementById('data-period-type');
+	let submitBtn = document.getElementById('data-go-estimate');
+
+	population = population.value;
+	timeToElapse = timeToElapse.value;
+	reportedCases = reportedCases.value;
+	totalHospitalBeds = totalHospitalBeds.value;
+	periodType = periodType.value;
+
+	submitBtn.addEventListener('click', covid19ImpactEstimator);
+
+</script>
+</html>

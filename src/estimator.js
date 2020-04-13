@@ -1,4 +1,4 @@
-const covid19ImpactEstimator = (data) => {
+const covid19ImpactEstimator = (data) => data;
 	data = {
 		region: {
 			name: name,
@@ -6,7 +6,7 @@ const covid19ImpactEstimator = (data) => {
 			avgDailyIncomeInUSD: avgDailyIncomeInUSD,
 			avgDailyIncomePopulation: avgDailyIncomePopulation
 		},
-		periodType: "days",
+		periodType: periodType,
 		timeToElapse: timeToElapse,
 		reportedCases: reportedCases,
 		population: population,
@@ -37,7 +37,6 @@ const covid19ImpactEstimator = (data) => {
 		}
 
 	};
-};
 
 function infectionRate(days) {
 	let result;
