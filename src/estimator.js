@@ -1,3 +1,5 @@
+import * as Main from '../main.js';
+
 const covid19ImpactEstimator = (data) => data;
 	data = {
 		region: {
@@ -6,11 +8,11 @@ const covid19ImpactEstimator = (data) => data;
 			avgDailyIncomeInUSD: avgDailyIncomeInUSD,
 			avgDailyIncomePopulation: avgDailyIncomePopulation
 		},
-		periodType: periodType,
-		timeToElapse: timeToElapse,
-		reportedCases: reportedCases,
-		population: population,
-		totalHospitalBeds: totalHospitalBeds
+		periodType: Main.periodType,
+		timeToElapse: Main.timeToElapse,
+		reportedCases: Main.reportedCases,
+		population: Main.population,
+		totalHospitalBeds: Main.totalHospitalBeds
 	}
 
 	
